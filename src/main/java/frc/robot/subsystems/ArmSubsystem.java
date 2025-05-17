@@ -7,13 +7,14 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
+import edu.wpi.first.wpilibj.DutyCycleEncoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.ArmConstants;
 
 public class ArmSubsystem extends SubsystemBase {
 
     private final SparkMax armMotor;
-    
+    private DutyCycleEncoder armEncoder = new DutyCycleEncoder(2);
     /**
      * This subsytem that controls the arm.
      */
@@ -49,5 +50,10 @@ public class ArmSubsystem extends SubsystemBase {
      */
     public void runArm(double speed){
         armMotor.set(speed);
+    }
+
+    public double GetEncoder()
+    {
+        return armEncoder.get();
     }
 }
