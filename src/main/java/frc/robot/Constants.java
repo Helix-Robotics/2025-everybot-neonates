@@ -36,7 +36,8 @@ public final class Constants {
     public static final double ROLLER_CORAL_OUT = -0.05;//-0.3
     public static final double ROLLER_ALGAE_IN = -0.8;
     public static final double ROLLER_ALGAE_OUT = 0.4;
-    public static final double ROLLER_CORAL_STACK = -1;
+    public static final double ROLLER_CORAL_STACK = -.2;
+    /**speed for roller for coral out and stack updated 3/5/25 */
   }
 
   public static final class ArmConstants {
