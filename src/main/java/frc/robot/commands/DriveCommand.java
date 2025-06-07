@@ -12,7 +12,9 @@ import java.util.function.DoubleSupplier;
 
 // Command to drive the robot with joystick inputs
 public class DriveCommand extends Command {
-  private final DoubleSupplier m_xSpeed;
+ private final DoubleSupplier m_xSpeed;
+  //private final DoubleSupplier m_lSpeed;
+  //private final DoubleSupplier m_rSpeed;
   private final DoubleSupplier m_zRotation;
   private final DriveSubsystem m_drive;
   private final BooleanSupplier m_squared;
@@ -23,6 +25,8 @@ public class DriveCommand extends Command {
    * 
    * @param driveSubsystem 
    * @param xSpeed The speed fowards and backwards
+   * @param rSpeed
+   * @param lSpeed
    * @param zRotation The speed to turn the drivetrain at
    * @param squareInputs Square the inputs from the controller
    */
@@ -30,6 +34,8 @@ public class DriveCommand extends Command {
       DoubleSupplier xSpeed, DoubleSupplier zRotation, BooleanSupplier squareInputs) {
     // Save parameters to local variables for use later
     m_xSpeed = xSpeed;
+    //m_lSpeed = lSpeed;
+    //m_rSpeed = rSpeed;
     m_zRotation = zRotation;
     m_drive = driveSubsystem;
     m_squared = squareInputs;
@@ -50,6 +56,7 @@ public class DriveCommand extends Command {
   @Override
   public void execute() {
     m_drive.driveArcade(m_xSpeed.getAsDouble(), m_zRotation.getAsDouble(), m_squared.getAsBoolean());
+    //m_drive.driveTank(m_lSpeed.getAsDouble(), m_rSpeed.getAsDouble(), m_squared.getAsBoolean());
   }
 
   // Runs each time the command ends via isFinished or being interrupted.
