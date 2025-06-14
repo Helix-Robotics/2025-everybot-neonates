@@ -86,21 +86,23 @@ public class DriveSubsystem extends SubsystemBase {
    * @param squared do you square the inputs from the controller
    */
   public void driveArcade(double xSpeed, double zRotation, boolean squared) {
-    Double rotationOffset = 0.0;
-    if (xSpeed > 0.9){
-      rotationOffset = 0.65;
+   /*  Double rotationOffset = 0.0;
+   if (xSpeed > 0.9){
+    rotationOffset = 0.5;
     }
     else if (xSpeed >0.7){
-       rotationOffset = 0.65;
+       rotationOffset = 0.57;
     }
-    // else if(xSpeed > 0.65){
-    //   rotationOffset = 0.5;
-    // }
+     else if(xSpeed > 0.65){
+       rotationOffset = 0.5;
+     }
 
     else{
       rotationOffset = 0.5;
     }
-    drive.arcadeDrive(xSpeed, zRotation + xSpeed*rotationOffset, squared);
+  drive.arcadeDrive(xSpeed, zRotation + xSpeed*rotationOffset, squared);*/
+    drive.arcadeDrive(xSpeed, zRotation, squared);
+    
   }
 
   /**
